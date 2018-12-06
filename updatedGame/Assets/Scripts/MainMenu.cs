@@ -10,11 +10,6 @@ public class MainMenu : MonoBehaviour {
 		SceneManager.LoadScene("Gameplay");
 	}
 
-	public void ReturnToMain()
-	{
-		SceneManager.LoadScene("Menu");
-	}
-
 	public void RestartGame()
 	{
 		FindObjectOfType<PlayManager>().ResetGame();

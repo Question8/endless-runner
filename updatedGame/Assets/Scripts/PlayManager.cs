@@ -13,7 +13,7 @@ public class PlayManager : MonoBehaviour {
 	private PlatformDestroyer[] platformList;
 
 	private ScoreManager scoreManager;
-	public Transform deathMenu;
+	public DeathMenu deathMenu;
 
 	// Use this for initialization
 	void Start () {
@@ -32,7 +32,7 @@ public class PlayManager : MonoBehaviour {
 
 	public void Fall()
 	{
-		scoreManager.dead = true;
+		scoreManager.scoreIncreasing = false;
 		player.gameObject.SetActive(false);
 
 
@@ -53,7 +53,8 @@ public class PlayManager : MonoBehaviour {
 		player.transform.position = playerStart;
 		platformGen.position = platformStartPoint;
 		player.gameObject.SetActive(true);
-		scoreManager.dead = false;
+		scoreManager.scoreCount = 0;
+		scoreManager.scoreIncreasing = true;
 	}
 
 

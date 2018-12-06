@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour {
 
@@ -60,6 +61,20 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown(0) && onGround)
 		{
+			//so you dont jump when clicking the pause button
+			if (EventSystem.current.IsPointerOverGameObject() )
+			{
+				return;
+			}
+			if ((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Began))
+			{
+				if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+				{
+
+					return;
+				}
+			}
+
 			isJumping = true;
 			jumpTimeCounter = jumpTime;
 			rb.velocity = new Vector2(rb.velocity.x, jumpForce);

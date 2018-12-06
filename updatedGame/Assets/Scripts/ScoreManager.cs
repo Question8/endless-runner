@@ -11,12 +11,11 @@ public class ScoreManager : MonoBehaviour {
 	public float highScoreCounter;
 
 	public float pointsPerSecond;
-	public bool dead;
+	public bool scoreIncreasing;
 
 	// Use this for initialization
 	void Start () {
 
-		dead = false;
 		if(PlayerPrefs.HasKey("HighScore"))
 		{
 
@@ -34,7 +33,7 @@ public class ScoreManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(!dead)
+		if(scoreIncreasing)
 		{
 			scoreCount += pointsPerSecond * Time.deltaTime;
 		}
@@ -57,10 +56,6 @@ public class ScoreManager : MonoBehaviour {
 		scoreText.text = "Score: " + Mathf.Round(scoreCount);
 		highScoreText.text = "High Score: " + Mathf.Round(highScoreCounter);
 
-		if (dead)
-		{
-			scoreCount = 0;
-		}
 		
 	}
 
