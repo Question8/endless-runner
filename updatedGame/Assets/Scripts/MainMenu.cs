@@ -14,6 +14,12 @@ public class MainMenu : MonoBehaviour {
 	{
 		FindObjectOfType<PlayManager>().ResetGame();
 	}
+
+	public void ResetScore()
+	{
+		PlayerPrefs.DeleteAll();
+	}
+
 	public void QuitGame()
 	{
 		Application.Quit();
