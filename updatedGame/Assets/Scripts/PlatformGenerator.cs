@@ -26,12 +26,17 @@ public class PlatformGenerator : MonoBehaviour {
 	private CoinGenerator coinGen;
 	public float randomCoinThreshold;
 
+	private EnemyGenerator enemyGen;
+	public float enemyDistAbove;
+	public float enemyThreshold;
+
 
 	// Use this for initialization
 	void Start () {
 
 		//platFormWidth = thePlatform.GetComponent<BoxCollider2D>().size.x;
 		coinGen = FindObjectOfType<CoinGenerator>();
+		enemyGen = FindObjectOfType<EnemyGenerator>();
 		platformWidths = new float[theObjectPools.Length];
 
 		for (int i = 0; i < theObjectPools.Length; i++)
@@ -80,10 +85,16 @@ public class PlatformGenerator : MonoBehaviour {
 				coinGen.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
 
 			}
+			if(Random.Range(0f, 100f) < enemyThreshold)
+			{
+				enemyGen.SpawnEnemy(new Vector3(transform.position.x, transform.position.y + enemyDistAbove, transform.position.z));
+			}
 
 			transform.position = new Vector3(x: transform.position.x + (platformWidths[platformSelector] / 2), y: transform.position.y, z: transform.position.z);
 
 		}
 		
 	}
+
+
 }
