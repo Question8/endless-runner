@@ -1011,7 +1011,7 @@ MonoBehaviour:
   groundCheck: {fileID: 1906635502}
   manager: {fileID: 474907995}
   onGround: 0
-  moveSpeed: 0
+  moveSpeed: 10
   speedMultiplier: 1.05
   speedIncreaseMilestone: 100
   jumpForce: 6
@@ -1031,7 +1031,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
