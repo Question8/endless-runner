@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask whatIsGround;
 	public Transform groundCheck;
 	public PlayManager manager;
+	private Attack attack;
 
 	//movement variables
 	private bool isSliding;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour {
 
 		rb = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
+		attack = GetComponent<Attack>();
 
 		jumpTimeCounter = jumpTime;
 		speedMilestoneCap = speedIncreaseMilestone;
@@ -99,6 +101,12 @@ public class PlayerController : MonoBehaviour {
 			jumpTimeCounter = 0;
 			isJumping = false;
 
+		}
+
+		if (Input.GetMouseButtonDown(1))
+		{
+			animator.SetTrigger("throw");
+			attack.Throw();
 		}
 
 
