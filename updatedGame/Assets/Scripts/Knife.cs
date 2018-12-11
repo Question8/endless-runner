@@ -23,7 +23,7 @@ public class Knife : MonoBehaviour {
 			if (collision.tag == "Enemy")
 			{
 				Destroy(gameObject);
-				Destroy(collision.gameObject);
+				collision.gameObject.SetActive(false);
 			}
 			else
 			{

@@ -26,6 +26,10 @@ public class PlatformGenerator : MonoBehaviour {
 	private CoinGenerator coinGen;
 	public float randomCoinThreshold;
 
+	public EnemyGenerator enemyGen;
+	public float enemyThreshold;
+	public float enemyDistAbove;
+
 
 	// Use this for initialization
 	void Start () {
@@ -80,6 +84,14 @@ public class PlatformGenerator : MonoBehaviour {
 				coinGen.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
 
 			}
+
+			if (Random.Range(0f, 100f) < enemyThreshold)
+			{
+
+				enemyGen.SpawnCoins(new Vector3(transform.position.x, transform.position.y + enemyDistAbove, transform.position.z));
+
+			}
+
 
 			transform.position = new Vector3(x: transform.position.x + (platformWidths[platformSelector] / 2), y: transform.position.y, z: transform.position.z);
 
